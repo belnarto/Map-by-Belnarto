@@ -18,17 +18,16 @@ package gmapsfx.javascript;
 import netscape.javascript.JSObject;
 
 /**
- *
  * @author Rob Terpilowski
  */
-public class JavascriptEnum  {
+public class JavascriptEnum {
 
     protected IJavascriptRuntime runtime;
     protected String type;
     protected String name;
     protected Object value;
 
-    
+
     protected JavascriptEnum(String type, String name) {
         this.type = type;
         this.name = name;
@@ -51,5 +50,5 @@ public class JavascriptEnum  {
     public String getName() {
         return name;
     }
-    
+
 }

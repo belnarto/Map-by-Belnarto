@@ -17,13 +17,12 @@
 package gmapsfx;
 
 /**
- *
  * @author Rob Terpilowski
  */
 public class MapNotInitializedException extends RuntimeException {
 
     public MapNotInitializedException() {
-        super( "Map has not yet been initialized");
+        super("Map has not yet been initialized");
     }
-    
+
 }

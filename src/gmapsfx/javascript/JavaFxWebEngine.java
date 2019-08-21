@@ -10,27 +10,29 @@ import javafx.concurrent.Worker;
 import javafx.scene.web.WebEngine;
 
 /**
- * This class provides an implementation of the IWebEngine interface utilizing 
+ * This class provides an implementation of the IWebEngine interface utilizing
  * a javafx.scene.web.WebEngine as the underlying engine.
- * 
+ *
  * @author Rob Terpilowski
  */
 public class JavaFxWebEngine implements IWebEngine {
-    
-    
+
+
     protected WebEngine webEngine;
-    
+
     /**
      * Builds a new engine utilizing the specified JavaFX WebEngine
+     *
      * @param engine The JavaFX WebEngine to use.
      */
-    public JavaFxWebEngine( WebEngine engine ) {
+    public JavaFxWebEngine(WebEngine engine) {
         this.webEngine = engine;
     }
 
-    
+
     /**
      * Executes the specified JavaScript Command
+     *
      * @param command The command to execute
      * @return The object returned by the script (if any).
      */
@@ -41,7 +43,8 @@ public class JavaFxWebEngine implements IWebEngine {
 
     /**
      * Gets a worked which will be notified when a web page has finished loading.
-     * @return The worker 
+     *
+     * @return The worker
      */
     @Override
     public Worker<Void> getLoadWorker() {
@@ -50,15 +53,13 @@ public class JavaFxWebEngine implements IWebEngine {
 
     /**
      * Loads the specified URL
+     *
      * @param url The URL to load in the engine.
      */
     @Override
     public void load(String url) {
         webEngine.load(url);
     }
-    
-    
-    
-    
-    
+
+
 }

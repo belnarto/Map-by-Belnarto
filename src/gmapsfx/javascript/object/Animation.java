@@ -16,7 +16,6 @@
 package gmapsfx.javascript.object;
 
 /**
- *
  * @author Rob Terpilowski
  */
 public enum Animation {

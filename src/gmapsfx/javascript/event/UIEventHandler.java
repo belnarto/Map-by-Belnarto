@@ -18,7 +18,8 @@ package gmapsfx.javascript.event;
 
 import netscape.javascript.JSObject;
 
-/** Handles Google Maps UI events.
+/**
+ * Handles Google Maps UI events.
  *
  * @author Geoff Capper
  */
@@ -26,5 +27,5 @@ public interface UIEventHandler extends GFXEventHandler {
     /**
      * @param obj This object may be either a MouseEvent or one of it's subclasses.
      */
-	public void handle(JSObject obj);
+    public void handle(JSObject obj);
 }

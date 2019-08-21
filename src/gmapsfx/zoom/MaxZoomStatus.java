@@ -7,7 +7,6 @@
 package gmapsfx.zoom;
 
 /**
- *
  * @author Geoff Capper
  */
 public enum MaxZoomStatus {

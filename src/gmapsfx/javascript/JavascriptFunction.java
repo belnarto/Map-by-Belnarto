@@ -18,14 +18,13 @@ package gmapsfx.javascript;
 import java.util.List;
 
 /**
- *
  * @author robt
  */
 public class JavascriptFunction extends JavascriptObject {
 
     /**
      * Attempt to create a function as an object
-     *
+     * <p>
      * var myCallback = function( argX ) { someVariable.someMethod( argX );
      * someOtherVariable.someOtherMethod(); }
      */
@@ -52,11 +51,11 @@ public class JavascriptFunction extends JavascriptObject {
             sb.append(")");
         }
         sb.append("{\n");
-        for( JavascriptFunctionLine line : functionLines ) {
-            sb.append( line.getFunctionLine() );
+        for (JavascriptFunctionLine line : functionLines) {
+            sb.append(line.getFunctionLine());
         }
         sb.append("}");
-        
+
         return sb.toString();
     }
 

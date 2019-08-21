@@ -16,10 +16,11 @@
 
 package gmapsfx.shapes;
 
-/** From google.maps.StrokePosition
+/**
+ * From google.maps.StrokePosition
  *
  * @author Geoff Capper
  */
 public enum StrokePosition {
-	CENTER, INSIDE, OUTSIDE;
+    CENTER, INSIDE, OUTSIDE;
 }

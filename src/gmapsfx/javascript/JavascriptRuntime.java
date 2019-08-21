@@ -72,7 +72,7 @@ public class JavascriptRuntime implements IJavascriptRuntime {
      * Gets a constructor as a string which then can be passed to the execute().
      *
      * @param javascriptObjectType The type of JavaScript object to create
-     * @param args The args of the constructor
+     * @param args                 The args of the constructor
      * @return A string which can be passed to the JavaScript environment to
      * create a new object.
      */
@@ -82,11 +82,11 @@ public class JavascriptRuntime implements IJavascriptRuntime {
     }
 
     /**
-     * Gets an array parameter constructor as a String, which then can be 
+     * Gets an array parameter constructor as a String, which then can be
      * passed to the execute() method.
      *
      * @param javascriptObjectType type The type of JavaScript object array to create
-     * @param ary The array elements
+     * @param ary                  The array elements
      * @return A string which can be passed to the JavaScript environment to
      * create a new array.
      */
@@ -102,7 +102,7 @@ public class JavascriptRuntime implements IJavascriptRuntime {
      *
      * @param variable The variable to invoke the function on.
      * @param function The function to invoke
-     * @param args Arguments the function requires
+     * @param args     Arguments the function requires
      * @return A string which can be passed to the JavaScript environment to
      * invoke the function
      */
@@ -116,7 +116,7 @@ public class JavascriptRuntime implements IJavascriptRuntime {
      * method.
      *
      * @param function The function to invoke
-     * @param args Arguments the function requires
+     * @param args     Arguments the function requires
      * @return A string which can be passed to the JavaScript environment to
      * invoke the function
      */
@@ -140,7 +140,7 @@ public class JavascriptRuntime implements IJavascriptRuntime {
      * execute() method.
      *
      * @param function The function to invoke
-     * @param ary The array of arguments to pass to the function.
+     * @param ary      The array of arguments to pass to the function.
      * @return A string which can be passed to the JavaScript environment to
      * invoke the function
      */
@@ -174,9 +174,9 @@ public class JavascriptRuntime implements IJavascriptRuntime {
         //    return ((LatLong) arg).getVariableName();
         //} else 
         if (arg instanceof JavascriptObject) {
-             return ((JavascriptObject) arg).getVariableName();
-           // return ((JavascriptObject) arg).getPropertiesAsString();
-        } else if( arg instanceof JavascriptEnum ) {
+            return ((JavascriptObject) arg).getVariableName();
+            // return ((JavascriptObject) arg).getPropertiesAsString();
+        } else if (arg instanceof JavascriptEnum) {
             return ((JavascriptEnum) arg).getEnumValue().toString();
         } else {
             return arg.toString();

@@ -6,12 +6,13 @@
 
 package gmapsfx.service.elevation;
 
-/** Status responses from the ElevationService.
+/**
+ * Status responses from the ElevationService.
  *
  * @author Geoff Capper
  */
 public enum ElevationStatus {
-    
+
     INVALID_REQUEST, OK, OVER_QUERY_LIMIT, REQUEST_DENIED, UNKNOWN_ERROR;
-    
+
 }

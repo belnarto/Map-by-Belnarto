@@ -40,7 +40,6 @@ public class MVCArray extends JavascriptObject {
 
     /**
      * Removes all elements from the array.
-     *
      */
     public void clear() {
         invokeJavascript("clear");
@@ -89,7 +88,7 @@ public class MVCArray extends JavascriptObject {
     /**
      * Inserts the supplied element at the specified index in the array.
      *
-     * @param idx The index at which to insert the item.
+     * @param idx  The index at which to insert the item.
      * @param elem The item to be inserted.
      */
     public void insertAt(int idx, JavascriptObject elem) {

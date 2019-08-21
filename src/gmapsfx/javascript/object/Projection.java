@@ -20,15 +20,14 @@ import gmapsfx.javascript.JavascriptObject;
 import netscape.javascript.JSObject;
 
 /**
- *
  * @author Geoff Capper
  */
 public class Projection extends JavascriptObject {
-    
+
     public Projection(JSObject obj) {
         super(GMapObjectType.PROJECTION, obj);
     }
-    
+
     public GMapPoint fromLatLngToPoint(LatLong loc) {
 //        System.out.println("Projection.fromLatLngToPoint: " + loc);
         Object res = invokeJavascript("fromLatLngToPoint", loc);
@@ -38,5 +37,5 @@ public class Projection extends JavascriptObject {
         }
         return null;
     }
-    
+
 }

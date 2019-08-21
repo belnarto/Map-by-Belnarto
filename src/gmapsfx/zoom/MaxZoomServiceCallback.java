@@ -7,11 +7,10 @@
 package gmapsfx.zoom;
 
 /**
- *
  * @author Geoff Capper
  */
 public interface MaxZoomServiceCallback {
-    
+
     public void maxZoomReceived(MaxZoomResult result);
-    
+
 }

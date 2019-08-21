@@ -16,7 +16,8 @@
 
 package gmapsfx.javascript.event;
 
-/** An enum of Google Maps state events for the Map object.
+/**
+ * An enum of Google Maps state events for the Map object.
  * <p>
  * See <a href="https://developers.google.com/maps/documentation/javascript/reference?csw=1#Map">Google Maps Javascript API V3 Reference</a>
  *

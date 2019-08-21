@@ -5,12 +5,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
+
 import geography.*;
 
 public class CorrectAnswer {
     public int vertices;
     public int edges;
     public List<GeographicPoint> path;
+
     public CorrectAnswer(String file, boolean hasEdges) {
         try {
             Scanner s = new Scanner(new File(file));

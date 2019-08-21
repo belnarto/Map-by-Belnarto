@@ -98,5 +98,5 @@ class Location {
     public boolean outsideBounds(float[] bounds) {
         return (lat < bounds[0] || lat > bounds[2] || lon < bounds[1] || lon > bounds[3]);
     }
-        
+
 }

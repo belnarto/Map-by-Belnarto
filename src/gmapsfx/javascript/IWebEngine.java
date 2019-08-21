@@ -10,7 +10,7 @@ import javafx.concurrent.Worker;
 /**
  * Provides an abstraction to the web engine, so that a mock engine can be utilized in unit tests, or a different web engine
  * could be utilized in future versions of this framework.
- * 
+ *
  * @author Rob Terpilowski
  */
 public interface IWebEngine {

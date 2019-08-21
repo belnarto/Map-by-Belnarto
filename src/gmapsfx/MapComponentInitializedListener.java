@@ -17,11 +17,10 @@
 package gmapsfx;
 
 /**
- *
  * @author Rob Terpilowski
  */
 public interface MapComponentInitializedListener {
-    
+
     public void mapInitialized();
-    
+
 }

@@ -28,13 +28,13 @@ import javafx.scene.control.ToggleGroup;
 import javafx.util.StringConverter;
 
 public class RouteController {
-	// Strings for slider labels
-	public static final int BFS = 3;
+    // Strings for slider labels
+    public static final int BFS = 3;
     public static final int A_STAR = 2;
     public static final int DIJ = 1;
-	public static final int DISABLE = 0;
-	public static final int START = 1;
-	public static final int DESTINATION = 2;
+    public static final int DISABLE = 0;
+    public static final int START = 1;
+    public static final int DESTINATION = 2;
 
     private int selectedToggle = DIJ;
 
@@ -54,25 +54,24 @@ public class RouteController {
     private MarkerManager markerManager;
 
 
-
-	public RouteController(RouteService routeService, Button displayButton, Button hideButton,
-						   Button resetButton, Button startButton, Button destinationButton,
-						   ToggleGroup group, List<RadioButton> searchOptions, Button visualizationButton,
-						   CLabel<geography.GeographicPoint> startLabel, CLabel<geography.GeographicPoint> endLabel,
-						   CLabel<geography.GeographicPoint> pointLabel, SelectManager manager, MarkerManager markerManager) {
+    public RouteController(RouteService routeService, Button displayButton, Button hideButton,
+                           Button resetButton, Button startButton, Button destinationButton,
+                           ToggleGroup group, List<RadioButton> searchOptions, Button visualizationButton,
+                           CLabel<geography.GeographicPoint> startLabel, CLabel<geography.GeographicPoint> endLabel,
+                           CLabel<geography.GeographicPoint> pointLabel, SelectManager manager, MarkerManager markerManager) {
         // save parameters
         this.routeService = routeService;
-		this.displayButton = displayButton;
+        this.displayButton = displayButton;
         this.hideButton = hideButton;
-		this.startButton = startButton;
-		this.resetButton = resetButton;
-		this.destinationButton = destinationButton;
+        this.startButton = startButton;
+        this.resetButton = resetButton;
+        this.destinationButton = destinationButton;
         this.group = group;
         this.visualizationButton = visualizationButton;
 
         // maybe don't need references to labels;
-		this.startLabel = startLabel;
-		this.endLabel = endLabel;
+        this.startLabel = startLabel;
+        this.endLabel = endLabel;
         this.pointLabel = pointLabel;
         this.selectManager = manager;
         this.markerManager = markerManager;
@@ -83,43 +82,42 @@ public class RouteController {
         setupLabels();
         setupToggle();
         //routeService.displayRoute("data/sampleroute.map");
-	}
+    }
 
 
-	private void setupDisplayButtons() {
-		displayButton.setOnAction(e -> {
-            if(startLabel.getItem() != null && endLabel.getItem() != null) {
-        			routeService.displayRoute(startLabel.getItem(), endLabel.getItem(), selectedToggle);
+    private void setupDisplayButtons() {
+        displayButton.setOnAction(e -> {
+            if (startLabel.getItem() != null && endLabel.getItem() != null) {
+                routeService.displayRoute(startLabel.getItem(), endLabel.getItem(), selectedToggle);
+            } else {
+                MapApp.showErrorAlert("Route Display Error", "Make sure to choose points for both start and destination.");
             }
-            else {
-            	MapApp.showErrorAlert("Route Display Error", "Make sure to choose points for both start and destination.");
-            }
-		});
+        });
 
         hideButton.setOnAction(e -> {
-        	routeService.hideRoute();
+            routeService.hideRoute();
         });
 
         //TODO -- implement
-        resetButton.setOnAction( e -> {
+        resetButton.setOnAction(e -> {
 
             routeService.reset();
         });
-	}
+    }
 
     private void setupVisualizationButton() {
-    	visualizationButton.setOnAction( e -> {
-    		markerManager.startVisualization();
-    	});
+        visualizationButton.setOnAction(e -> {
+            markerManager.startVisualization();
+        });
     }
 
     private void setupRouteButtons() {
-    	startButton.setOnAction(e -> {
+        startButton.setOnAction(e -> {
             //System.out.println();
             selectManager.setStart();
-    	});
+        });
 
-        destinationButton.setOnAction( e-> {
+        destinationButton.setOnAction(e -> {
             selectManager.setDestination();
         });
     }
@@ -131,23 +129,18 @@ public class RouteController {
     }
 
     private void setupToggle() {
-    	group.selectedToggleProperty().addListener( li -> {
-            if(group.getSelectedToggle().getUserData().equals("Dijkstra")) {
-            	selectedToggle = DIJ;
+        group.selectedToggleProperty().addListener(li -> {
+            if (group.getSelectedToggle().getUserData().equals("Dijkstra")) {
+                selectedToggle = DIJ;
+            } else if (group.getSelectedToggle().getUserData().equals("A*")) {
+                selectedToggle = A_STAR;
+            } else if (group.getSelectedToggle().getUserData().equals("BFS")) {
+                selectedToggle = BFS;
+            } else {
+                System.err.println("Invalid radio button selection");
             }
-            else if(group.getSelectedToggle().getUserData().equals("A*")) {
-            	selectedToggle = A_STAR;
-            }
-            else if(group.getSelectedToggle().getUserData().equals("BFS")) {
-            	selectedToggle = BFS;
-            }
-            else {
-            	System.err.println("Invalid radio button selection");
-            }
-    	});
+        });
     }
-
-
 
 
 }

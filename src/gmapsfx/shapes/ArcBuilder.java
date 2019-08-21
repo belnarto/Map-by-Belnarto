@@ -60,10 +60,10 @@ public class ArcBuilder {
      * Generates the points for an arc based on two bearings from a centre point
      * and a radius.
      *
-     * @param center The LatLong point of the center.
+     * @param center       The LatLong point of the center.
      * @param startBearing North is 0 degrees, East is 90 degrees, etc.
-     * @param endBearing North is 0 degrees, East is 90 degrees, etc.
-     * @param radius In metres
+     * @param endBearing   North is 0 degrees, East is 90 degrees, etc.
+     * @param radius       In metres
      * @return An array of LatLong points in an MVC array representing the arc.
      * Using this method directly you will need to push the centre point onto
      * the array in order to close it, if desired.

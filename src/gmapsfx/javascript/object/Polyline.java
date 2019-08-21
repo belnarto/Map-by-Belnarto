@@ -18,22 +18,23 @@ package gmapsfx.javascript.object;
 
 import gmapsfx.javascript.JavascriptObject;
 
-/** Wraps a google.maps.Polyline object.
+/**
+ * Wraps a google.maps.Polyline object.
  *
  * @author Geoff Capper
  */
 public class Polyline extends JavascriptObject {
-    
+
     public Polyline() {
         super(GMapObjectType.POLYLINE);
     }
-    
+
     public Polyline(PolylineOptions opts) {
         super(GMapObjectType.POLYLINE, opts);
     }
-    
+
     /**
-     * This method is called from the GoogleMap.addPolyline() method, 
+     * This method is called from the GoogleMap.addPolyline() method,
      * it should not be invoked directly.
      *
      * @param map The map to add this Polyline to.
@@ -41,5 +42,5 @@ public class Polyline extends JavascriptObject {
     protected void setMap(GoogleMap map) {
         invokeJavascript("setMap", map);
     }
-    
+
 }

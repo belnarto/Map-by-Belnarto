@@ -20,10 +20,10 @@ import gmapsfx.javascript.JavascriptObject;
 
 /**
  * Size object corresponding to <a href="https://developers.google.com/maps/documentation/javascript/reference#Size">google.maps.Size</a>
-* 
-* Two-dimensonal size, where width is the distance on the x-axis, and height is the distance on the y-axis.
-* 
-* @author Rob Terpilowski
+ * <p>
+ * Two-dimensonal size, where width is the distance on the x-axis, and height is the distance on the y-axis.
+ *
+ * @author Rob Terpilowski
  */
 public class Size extends JavascriptObject {
 
@@ -31,27 +31,24 @@ public class Size extends JavascriptObject {
     protected int height;
     protected String widthUnit;
     protected String heightUnit;
-    
-    
-    
+
+
     /**
-     * 
-     * @param width distance on x-axis
+     * @param width  distance on x-axis
      * @param height distance on y-axis
      */
     public Size(int width, int height) {
         super(GMapObjectType.SIZE, width, height);
     }
-    
+
     /**
-     * 
-     * @param width distance on x-axis
-     * @param height distance on y-axis
+     * @param width      distance on x-axis
+     * @param height     distance on y-axis
      * @param widthUnit
-     * @param heightUnit 
+     * @param heightUnit
      */
-    public Size( int width, int height, String widthUnit, String heightUnit ) {
-        super( GMapObjectType.SIZE, width, height, widthUnit, heightUnit );
+    public Size(int width, int height, String widthUnit, String heightUnit) {
+        super(GMapObjectType.SIZE, width, height, widthUnit, heightUnit);
     }
 
     public int getWidth() {
@@ -69,15 +66,15 @@ public class Size extends JavascriptObject {
     public String getHeightUnit() {
         return heightUnit;
     }
-    
-    public boolean equals( Size other ) {
+
+    public boolean equals(Size other) {
         return invokeJavascriptReturnValue("equals", Boolean.class, other);
     }
-    
-    
+
+
     @Override
     public String toString() {
-        return invokeJavascriptReturnValue("toString", String.class, (Object)null);
+        return invokeJavascriptReturnValue("toString", String.class, (Object) null);
     }
-    
+
 }

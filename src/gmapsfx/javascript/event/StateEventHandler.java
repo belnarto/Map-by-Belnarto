@@ -16,10 +16,11 @@
 
 package gmapsfx.javascript.event;
 
-/** Handles Google Maps state events, which are called without any parameters.
+/**
+ * Handles Google Maps state events, which are called without any parameters.
  *
  * @author Geoff Capper
  */
 public interface StateEventHandler extends GFXEventHandler {
-	public void handle();
+    public void handle();
 }

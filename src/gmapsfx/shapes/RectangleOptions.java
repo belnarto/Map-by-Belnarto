@@ -19,13 +19,12 @@ package gmapsfx.shapes;
 import gmapsfx.javascript.object.LatLongBounds;
 
 /**
- *
  * @author Geoff Capper
  */
 public class RectangleOptions extends FillableMapShapeOptions<RectangleOptions> {
-    
+
     private LatLongBounds bounds;
-    
+
     public RectangleOptions bounds(LatLongBounds bounds) {
         setProperty("bounds", bounds);
         this.bounds = bounds;
@@ -36,5 +35,5 @@ public class RectangleOptions extends FillableMapShapeOptions<RectangleOptions> 
     protected RectangleOptions getMe() {
         return this;
     }
-    
+
 }

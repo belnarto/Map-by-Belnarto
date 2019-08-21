@@ -19,11 +19,10 @@ package gmapsfx.javascript.object;
 import gmapsfx.javascript.JavascriptObject;
 
 /**
- *
  * @author robt
  */
 public class MapOptions extends JavascriptObject {
-    
+
     protected LatLong center;
     protected MapTypeIdEnum mapType;
     protected boolean mapMarker;
@@ -35,77 +34,77 @@ public class MapOptions extends JavascriptObject {
     protected int zoom;
     protected boolean zoomControl;
     protected boolean mapTypeControl;
-    
+
 
     public MapOptions() {
         super(GMapObjectType.OBJECT);
     }
-    
-    
-    public MapOptions center( LatLong center ) {
+
+
+    public MapOptions center(LatLong center) {
         setProperty("center", center);
         this.center = center;
         return this;
     }
-    
-    public MapOptions mapMarker( boolean mapMarker ) {
-        setProperty("mapMarker", mapMarker );
+
+    public MapOptions mapMarker(boolean mapMarker) {
+        setProperty("mapMarker", mapMarker);
         this.mapMarker = mapMarker;
         return this;
     }
-    
-    public MapOptions mapType( MapTypeIdEnum mapType ) {
-        setProperty( "mapTypeId", mapType );
+
+    public MapOptions mapType(MapTypeIdEnum mapType) {
+        setProperty("mapTypeId", mapType);
         this.mapType = mapType;
         return this;
     }
-    
-    public MapOptions overviewMapControl( boolean overviewMapControl ) {
-        setProperty("overviewMapControl", overviewMapControl );
+
+    public MapOptions overviewMapControl(boolean overviewMapControl) {
+        setProperty("overviewMapControl", overviewMapControl);
         this.overviewMapControl = overviewMapControl;
         return this;
     }
-    
-    public MapOptions panControl( boolean panControl ) {
-        setProperty( "panControl", panControl);
+
+    public MapOptions panControl(boolean panControl) {
+        setProperty("panControl", panControl);
         this.panControl = panControl;
         return this;
     }
-    
-    public MapOptions rotateControl( boolean rotateControl ) {
-        setProperty( "rotateControl", rotateControl );
+
+    public MapOptions rotateControl(boolean rotateControl) {
+        setProperty("rotateControl", rotateControl);
         this.rotateControl = rotateControl;
         return this;
     }
-    
-    public MapOptions scaleControl( boolean scaleControl ) {
-        setProperty( "scaleControl", scaleControl );
+
+    public MapOptions scaleControl(boolean scaleControl) {
+        setProperty("scaleControl", scaleControl);
         this.scaleControl = scaleControl;
         return this;
     }
-    
-    public MapOptions streetViewControl( boolean streetViewControl ) {
-        setProperty( "streetViewControl", streetViewControl );
+
+    public MapOptions streetViewControl(boolean streetViewControl) {
+        setProperty("streetViewControl", streetViewControl);
         this.streetViewControl = streetViewControl;
         return this;
     }
-    
-    public MapOptions zoom( int zoom ) {
-        setProperty( "zoom", zoom );
+
+    public MapOptions zoom(int zoom) {
+        setProperty("zoom", zoom);
         this.zoom = zoom;
         return this;
     }
-    
-    public MapOptions zoomControl( boolean zoomControl ) {
-        setProperty( "zoomControl", zoomControl );
+
+    public MapOptions zoomControl(boolean zoomControl) {
+        setProperty("zoomControl", zoomControl);
         this.zoomControl = zoomControl;
         return this;
     }
-    
-    public MapOptions mapTypeControl( boolean mapTypeControl ) {
-        setProperty( "mapTypeControl", mapTypeControl);
+
+    public MapOptions mapTypeControl(boolean mapTypeControl) {
+        setProperty("mapTypeControl", mapTypeControl);
         this.mapTypeControl = mapTypeControl;
         return this;
     }
-    
+
 }

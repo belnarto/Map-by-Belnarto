@@ -31,7 +31,6 @@ import javafx.geometry.Point2D;
 import netscape.javascript.JSObject;
 
 /**
- *
  * @author Rob Terpilowski
  */
 public class GoogleMap extends JavascriptObject {
@@ -100,8 +99,8 @@ public class GoogleMap extends JavascriptObject {
         return getProperty("setCenter", LatLong.class);
     }
 
-    public void fitBounds( LatLongBounds bounds ) {
-        invokeJavascript("fitBounds", bounds );
+    public void fitBounds(LatLongBounds bounds) {
+        invokeJavascript("fitBounds", bounds);
     }
 
 
@@ -120,12 +119,12 @@ public class GoogleMap extends JavascriptObject {
     }
 
 
-    public void setHeading( double heading ) {
+    public void setHeading(double heading) {
         invokeJavascript("setHeading", heading);
     }
 
     public double getHeading() {
-        return invokeJavascriptReturnValue("getHeading", Double.class );
+        return invokeJavascriptReturnValue("getHeading", Double.class);
     }
 
     public void addMarker(Marker marker) {
@@ -230,7 +229,7 @@ public class GoogleMap extends JavascriptObject {
      * Adds a handler for a mouse type event on the map.
      *
      * @param type Type of the event to register against.
-     * @param h Handler that will be called when the event occurs.
+     * @param h    Handler that will be called when the event occurs.
      */
     public void addUIEventHandler(UIEventType type, UIEventHandler h) {
         this.addUIEventHandler(this, type, h);
@@ -239,9 +238,9 @@ public class GoogleMap extends JavascriptObject {
     /**
      * Adds a handler for a mouse type event on the map.
      *
-     * @param obj The object that the event should be registered on.
+     * @param obj  The object that the event should be registered on.
      * @param type Type of the event to register against.
-     * @param h Handler that will be called when the event occurs.
+     * @param h    Handler that will be called when the event occurs.
      */
     public void addUIEventHandler(JavascriptObject obj, UIEventType type, UIEventHandler h) {
         String key = registerEventHandler(h);
@@ -260,7 +259,7 @@ public class GoogleMap extends JavascriptObject {
      * state events.
      *
      * @param type Type of the event to register against.
-     * @param h Handler that will be called when the event occurs.
+     * @param h    Handler that will be called when the event occurs.
      */
     public void addStateEventHandler(MapStateEventType type, StateEventHandler h) {
         String key = registerEventHandler(h);

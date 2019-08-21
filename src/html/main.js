@@ -1,3 +1,4 @@
-mapInit() {
+mapInit()
+{
     alert("It's in!!");
 }

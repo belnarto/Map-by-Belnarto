@@ -32,7 +32,6 @@ import javafx.stage.Stage;
 import netscape.javascript.JSObject;
 
 /**
- *
  * @author Geoff Capper
  */
 public class ArrayTester extends Application {
@@ -45,7 +44,7 @@ public class ArrayTester extends Application {
 
         webview = new WebView();
         webengine = new JavaFxWebEngine(webview.getEngine());
-        JavascriptRuntime.setDefaultWebEngine( webengine );
+        JavascriptRuntime.setDefaultWebEngine(webengine);
 
         BorderPane bp = new BorderPane();
         bp.setCenter(webview);

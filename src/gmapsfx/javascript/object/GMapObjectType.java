@@ -17,11 +17,10 @@
 package gmapsfx.javascript.object;
 
 /**
- *
- * @author Rob Terpilowski 
+ * @author Rob Terpilowski
  */
 public interface GMapObjectType {
-    
+
     public static final String OBJECT = "Object";
     public static final String MAP = "google.maps.Map";
     public static final String INFO_WINDOW = "google.maps.InfoWindow";
@@ -40,5 +39,5 @@ public interface GMapObjectType {
     public static final String MAX_ZOOM_RESULT = "google.maps.MaxZoomResult";
     public static final String PROJECTION = "google.maps.Projection";
     public static final String POINT = "google.maps.Point";
-    
+
 }

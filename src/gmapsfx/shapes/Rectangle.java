@@ -21,22 +21,21 @@ import gmapsfx.javascript.object.LatLongBounds;
 import gmapsfx.javascript.object.MapShape;
 
 /**
- *
  * @author Geoff Capper
  */
 public class Rectangle extends MapShape {
-    
+
     public Rectangle() {
         super(GMapObjectType.RECTANGLE);
     }
-    
+
     public Rectangle(RectangleOptions opts) {
         super(GMapObjectType.RECTANGLE, opts);
     }
-    
+
     //setBounds
     public void setBounds(LatLongBounds bounds) {
         invokeJavascript("setBounds", bounds);
     }
-    
+
 }

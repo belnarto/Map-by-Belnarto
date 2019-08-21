@@ -21,26 +21,27 @@ import gmapsfx.javascript.object.MVCArray;
 import gmapsfx.javascript.object.MapShape;
 import netscape.javascript.JSObject;
 
-/** Wraps a google.maps.Polyline object.
+/**
+ * Wraps a google.maps.Polyline object.
  *
  * @author Geoff Capper
  */
 public class Polyline extends MapShape {
-    
+
     public Polyline() {
         super(GMapObjectType.POLYLINE);
     }
-    
+
     public Polyline(PolylineOptions opts) {
         super(GMapObjectType.POLYLINE, opts);
     }
-    
+
     public MVCArray getPath() {
         return new MVCArray((JSObject) invokeJavascript("getPath"));
     }
-    
+
     public void setPath(MVCArray path) {
         invokeJavascript("setPath", path);
     }
-    
+
 }

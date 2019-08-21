@@ -13,9 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *
- * This file includes Java implementations of some of the v3_epolys.js 
+ * This file includes Java implementations of some of the v3_epolys.js
  * extensions to LatLng for Javascript by Mike Williams and Larry Ross.
- * See included file src/main/resource/html/v3_epoly.js for their original 
+ * See included file src/main/resource/html/v3_epoly.js for their original
  * licence.
  */
 package gmapsfx.javascript.object;
@@ -24,7 +24,6 @@ import gmapsfx.javascript.JavascriptObject;
 import netscape.javascript.JSObject;
 
 /**
- *
  * @author Rob Terpilowski
  */
 public class LatLong extends JavascriptObject {
@@ -41,11 +40,11 @@ public class LatLong extends JavascriptObject {
     }
 
     public double getLatitude() {
-        return invokeJavascriptReturnValue("lat", Number.class ).doubleValue();
+        return invokeJavascriptReturnValue("lat", Number.class).doubleValue();
     }
 
     public double getLongitude() {
-        return invokeJavascriptReturnValue("lng", Number.class ).doubleValue();
+        return invokeJavascriptReturnValue("lng", Number.class).doubleValue();
     }
 
     /**
@@ -93,7 +92,7 @@ public class LatLong extends JavascriptObject {
      * distance from this LatLong, along the provided bearing, where North is 0,
      * East is 90 etc.
      *
-     * @param bearing The bearing, in degrees, with North as 0, East as 90 etc.
+     * @param bearing  The bearing, in degrees, with North as 0, East as 90 etc.
      * @param distance The distance in metres.
      * @return A new LatLong indicating the end point.
      */
@@ -110,9 +109,9 @@ public class LatLong extends JavascriptObject {
                 * Math.cos(brng));
 
         double lon2 = lon1 + Math.atan2(Math.sin(brng)
-                * Math.sin(distance / EarthRadiusMeters) * Math.cos(lat1),
+                        * Math.sin(distance / EarthRadiusMeters) * Math.cos(lat1),
                 Math.cos(distance / EarthRadiusMeters)
-                - Math.sin(lat1) * Math.sin(lat2));
+                        - Math.sin(lat1) * Math.sin(lat2));
 
         return new LatLong(Math.toDegrees(lat2), Math.toDegrees(lon2));
 
@@ -137,7 +136,7 @@ public class LatLong extends JavascriptObject {
 
         double angle = -Math.atan2(Math.sin(lon1 - lon2) * Math.cos(lat2),
                 Math.cos(lat1) * Math.sin(lat2) - Math.sin(lat1)
-                * Math.cos(lat2) * Math.cos(lon1 - lon2));
+                        * Math.cos(lat2) * Math.cos(lon1 - lon2));
 
         if (angle < 0.0) {
             angle += Math.PI * 2.0;
@@ -149,8 +148,6 @@ public class LatLong extends JavascriptObject {
         return Math.toDegrees(angle);
     }
 
-    
-    
 
     @Override
     public String toString() {

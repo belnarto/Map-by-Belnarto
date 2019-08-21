@@ -16,7 +16,8 @@
 
 package gmapsfx.javascript.event;
 
-/** A tagging interface to allow us to store all event handlers in the one 
+/**
+ * A tagging interface to allow us to store all event handlers in the one
  * {@link EventHandlers} object.
  *
  * @author Geoff Capper

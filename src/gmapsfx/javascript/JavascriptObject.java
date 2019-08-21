@@ -20,6 +20,7 @@ import java.util.Map;
 import java.util.WeakHashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 import netscape.javascript.JSObject;
 
 /**
@@ -29,13 +30,14 @@ import netscape.javascript.JSObject;
  */
 public class JavascriptObject {
 
-    protected static Map<JSObject,JavascriptObject> peerRegistry = new WeakHashMap<>();
+    protected static Map<JSObject, JavascriptObject> peerRegistry = new WeakHashMap<>();
     protected IJavascriptRuntime runtime;
     protected JSObject jsObject;
     protected static int objectCounter = 0;
     protected String variableName;
 
     /**
+     *
      */
     protected JavascriptObject() {
         runtime = JavascriptRuntime.getInstance();
@@ -43,7 +45,6 @@ public class JavascriptObject {
     }
 
     /**
-     *
      * @param type The type of underlying Javascript object to create
      */
     protected JavascriptObject(String type) {
@@ -54,14 +55,15 @@ public class JavascriptObject {
     /**
      * Builds a new JavascriptObject based on a string representation of the object.
      * This is useful when constructing functions as objects
-     * @param type The type of object to build
+     *
+     * @param type                 The type of object to build
      * @param stringRepresentation A string representation of the object, which can be executed by
-     * the Javascript runtime.
+     *                             the Javascript runtime.
      */
-    protected JavascriptObject( String type, String stringRepresentation ) {
+    protected JavascriptObject(String type, String stringRepresentation) {
         runtime = JavascriptRuntime.getInstance();
         variableName = getNextVariableName();
-        runtime.execute( "var " + variableName + " = " + stringRepresentation );
+        runtime.execute("var " + variableName + " = " + stringRepresentation);
         jsObject = runtime.execute(variableName);
         peerRegistry.put(jsObject, this);
     }
@@ -79,11 +81,10 @@ public class JavascriptObject {
     }
 
     /**
-     * @param type The type of underlying Javascript object to create.
-     * @param ary The array to be passed in.
+     * @param type    The type of underlying Javascript object to create.
+     * @param ary     The array to be passed in.
      * @param isArray boolean to indicate the an array is to be used as the parameter
-     * rather than breaking up into individual parameters.
-     *
+     *                rather than breaking up into individual parameters.
      */
     protected JavascriptObject(String type, Object[] ary, boolean isArray) {
         runtime = JavascriptRuntime.getInstance();
@@ -97,7 +98,7 @@ public class JavascriptObject {
     /**
      * Wraps a Javascript JSObject returned from a function.
      *
-     * @param type Type of Javascript object to create.
+     * @param type     Type of Javascript object to create.
      * @param jsObject Object returned from Javascript.
      */
     protected JavascriptObject(String type, JSObject jsObject) {
@@ -139,7 +140,7 @@ public class JavascriptObject {
     /**
      * Sets a property on this Javascript object.
      *
-     * @param propertyName The property name
+     * @param propertyName  The property name
      * @param propertyValue The property value.
      */
     protected void setProperty(String propertyName, Object propertyValue) {
@@ -150,7 +151,7 @@ public class JavascriptObject {
      * Sets a property on this Javascript object for which the value is a
      * Javascript object itself.
      *
-     * @param propertyName The name of the property.
+     * @param propertyName  The name of the property.
      * @param propertyValue The value of the property.
      */
     protected void setProperty(String propertyName, JavascriptObject propertyValue) {
@@ -160,10 +161,10 @@ public class JavascriptObject {
     /**
      * Sets a property on this Javascript object for which the value is a
      * JavascriptEnum
-     *
+     * <p>
      * The value is set to what is returned by the getEnumValue() method on the JavascriptEnum
      *
-     * @param propertyName The name of the property.
+     * @param propertyName  The name of the property.
      * @param propertyValue The value of the property.
      */
     protected void setProperty(String propertyName, JavascriptEnum propertyValue) {
@@ -185,7 +186,7 @@ public class JavascriptObject {
      * Gets the property and casts to the appropriate type
      *
      * @param <T>
-     * @param key The property name
+     * @param key  The property name
      * @param type The property type
      * @return The value of the property
      */
@@ -213,12 +214,12 @@ public class JavascriptObject {
      * Invoke the specified JavaScript function in the JavaScript runtime.
      *
      * @param function The function to invoke
-     * @param args Any arguments to pass to the function
+     * @param args     Any arguments to pass to the function
      * @return The result of the function.
      */
     protected Object invokeJavascript(String function, Object... args) {
-    	
-    	Object[] jsArgs = new Object[args.length];
+
+        Object[] jsArgs = new Object[args.length];
         for (int i = 0; i < jsArgs.length; i++) {
             if (args[i] instanceof JavascriptObject) {
                 jsArgs[i] = ((JavascriptObject) args[i]).getJSObject();
@@ -235,12 +236,12 @@ public class JavascriptObject {
      * Invokes a JavaScript function that takes no arguments.
      *
      * @param <T>
-     * @param function The function to invoke
+     * @param function   The function to invoke
      * @param returnType The type of object to return
      * @return The result of the function.
      */
     protected <T> T invokeJavascriptReturnValue(String function, Class<T> returnType) {
-    	Object returnObject = invokeJavascript(function);
+        Object returnObject = invokeJavascript(function);
         if (returnObject instanceof JSObject) {
             try {
                 Constructor<T> constructor = returnType.getConstructor(JSObject.class);
@@ -257,14 +258,14 @@ public class JavascriptObject {
      * Invoke the specified JavaScript function in the JavaScript runtime.
      *
      * @param <T>
-     * @param function The function to invoke
+     * @param function   The function to invoke
      * @param returnType The type of object to return
-     * @param args Any arguments to pass to the function
+     * @param args       Any arguments to pass to the function
      * @return The result of the function.
      */
     protected <T> T invokeJavascriptReturnValue(String function, Class<T> returnType, Object... args) {
-    	
-    	Object returnObject = invokeJavascript(function, args);
+
+        Object returnObject = invokeJavascript(function, args);
         if (returnObject != null) {
             return (T) returnObject;
         } else {
@@ -275,11 +276,12 @@ public class JavascriptObject {
 
     protected boolean isMemberDefined(String member) {
         Object res = jsObject.getMember(member);
-        return (res instanceof String && ! ((String) res).equals("undefined"));
+        return (res instanceof String && !((String) res).equals("undefined"));
 
     }
 
-    /** JSObject will return the String "undefined" at certain times, so we
+    /**
+     * JSObject will return the String "undefined" at certain times, so we
      * need to make sure we're not getting a value that looks valid, but isn't.
      *
      * @param val The value from Javascript to be checked.
@@ -292,7 +294,8 @@ public class JavascriptObject {
         return val;
     }
 
-    /** Checks a returned Javascript value where we expect a boolean but could
+    /**
+     * Checks a returned Javascript value where we expect a boolean but could
      * get null.
      *
      * @param val The value from Javascript to be checked.

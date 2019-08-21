@@ -20,7 +20,6 @@ import gmapsfx.javascript.JavascriptObject;
 import netscape.javascript.JSObject;
 
 /**
- *
  * @author Geoff Capper
  */
 public class LatLongBounds extends JavascriptObject {
@@ -38,8 +37,8 @@ public class LatLongBounds extends JavascriptObject {
     }
 
     public LatLongBounds extend(LatLong point) {
-    	Object obj = invokeJavascript("extend", point);
-    	return new LatLongBounds((JSObject)obj);
+        Object obj = invokeJavascript("extend", point);
+        return new LatLongBounds((JSObject) obj);
     }
 
     public LatLong getNorthEast() {

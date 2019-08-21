@@ -10,6 +10,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Scanner;
 import java.util.function.Consumer;
+
 import util.GraphLoader;
 import geography.*;
 
@@ -24,12 +25,16 @@ public class DijkstraGrader implements Runnable {
 
     private static final int TESTS = 4;
 
-    /** Format readable feedback */
+    /**
+     * Format readable feedback
+     */
     public static String printOutput(double score, String feedback) {
         return "Score: " + score + "\nFeedback: " + feedback;
     }
 
-    /** Format test number and description */
+    /**
+     * Format test number and description
+     */
     public static String appendFeedback(int num, String test) {
         return "\n** Test #" + num + ": " + test + "...";
     }
@@ -42,7 +47,7 @@ public class DijkstraGrader implements Runnable {
         thread.start();
         long endTime = System.currentTimeMillis() + 10000;
         boolean infinite = false;
-        while(thread.isAlive()) {
+        while (thread.isAlive()) {
             // Stop thread after 10 seconds
             if (System.currentTimeMillis() > endTime) {
                 thread.stop();
@@ -51,16 +56,18 @@ public class DijkstraGrader implements Runnable {
             }
         }
         if (infinite) {
-            System.out.println(printOutput((double)grader.correct / TESTS, grader.feedback + "\nYour program entered an infinite loop."));
+            System.out.println(printOutput((double) grader.correct / TESTS, grader.feedback + "\nYour program entered an infinite loop."));
         }
     }
 
-    /** Run a test case on an adjacency list and adjacency matrix.
-     * @param i The graph number
-     * @param file The file to read from
-     * @param desc A description of the graph
+    /**
+     * Run a test case on an adjacency list and adjacency matrix.
+     *
+     * @param i     The graph number
+     * @param file  The file to read from
+     * @param desc  A description of the graph
      * @param start The point to start from
-     * @param end The point to end at
+     * @param end   The point to end at
      */
     public void runTest(int i, String file, String desc, GeographicPoint start, GeographicPoint end) {
         MapGraph graph = new MapGraph();
@@ -73,12 +80,14 @@ public class DijkstraGrader implements Runnable {
         judge(i, graph, corr, start, end);
     }
 
-    /** Compare the user's result with the right answer.
-     * @param i The graph number
+    /**
+     * Compare the user's result with the right answer.
+     *
+     * @param i      The graph number
      * @param result The user's graph
-     * @param corr The correct answer
-     * @param start The point to start from
-     * @param end The point to end at
+     * @param corr   The correct answer
+     * @param start  The point to start from
+     * @param end    The point to end at
      */
     public void judge(int i, MapGraph result, CorrectAnswer corr, GeographicPoint start, GeographicPoint end) {
         // Correct if paths are same length and have the same elements
@@ -104,7 +113,9 @@ public class DijkstraGrader implements Runnable {
         }
     }
 
-    /** Print a search path in readable form */
+    /**
+     * Print a search path in readable form
+     */
     public String printPath(List<GeographicPoint> path) {
         String ret = "";
         for (GeographicPoint point : path) {
@@ -113,7 +124,9 @@ public class DijkstraGrader implements Runnable {
         return ret;
     }
 
-    /** Run the grader */
+    /**
+     * Run the grader
+     */
     public void run() {
         feedback = "";
 
@@ -137,7 +150,7 @@ public class DijkstraGrader implements Runnable {
             feedback += "\nError during runtime: " + e;
             e.printStackTrace();
         }
-            
-        System.out.println(printOutput((double)correct / TESTS, feedback));
+
+        System.out.println(printOutput((double) correct / TESTS, feedback));
     }
 }

@@ -8,18 +8,18 @@ public class MarkerShape extends JavascriptObject {
     private String type;
 
     public MarkerShape() {
-    	super(GMapObjectType.OBJECT);
+        super(GMapObjectType.OBJECT);
     }
 
     public MarkerShape coords(JavascriptArray coords) {
-    	setProperty("coords", coords);
-    	this.coords = coords;
-    	return this;
+        setProperty("coords", coords);
+        this.coords = coords;
+        return this;
     }
 
     public MarkerShape type(String type) {
-    	setProperty("type", type);
-    	this.type = type;
+        setProperty("type", type);
+        this.type = type;
         return this;
     }
 }

@@ -1,39 +1,39 @@
 html, body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
+    height: 100%;
+    margin: 0;
+    padding: 0;
 }
 
-.root{
-  -fx-font-size: 16px ;
-  -fx-font-family: Helvetica, Trebuchet , Verdana, Sans-Serif, Times New Roman;
+.root {
+    -fx-font-size: 16px;
+    -fx-font-family: Helvetica, Trebuchet, Verdana, Sans-Serif, Times New Roman;
 }
 
 #map {
-  height: 100%;
+    height: 100%;
 }
 
 #directions-panel {
-  font-family: 'Roboto','sans-serif';
-  line-height: 30px;
-  padding-left: 10px;
+    font-family: 'Roboto', 'sans-serif';
+    line-height: 30px;
+    padding-left: 10px;
 }
 
 #directions-panel select, #directions-panel input {
-  font-size: 15px;
+    font-size: 15px;
 }
 
 #directions-panel select {
-  width: 100%;
+    width: 100%;
 }
 
 #directions-panel i {
-  font-size: 12px;
+    font-size: 12px;
 }
 
 #directions-panel {
-  height: 100%;
-  float: right;
-  width: 390px;
-  overflow: auto;
+    height: 100%;
+    float: right;
+    width: 390px;
+    overflow: auto;
 }

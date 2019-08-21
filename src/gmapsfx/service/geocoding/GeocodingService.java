@@ -19,12 +19,9 @@ package gmapsfx.service.geocoding;
 import gmapsfx.javascript.JavascriptObject;
 
 /**
- *
  * @author Rob Terpilowski
  */
 public class GeocodingService extends JavascriptObject {
-    
-    
-    
-    
+
+
 }
